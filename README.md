@@ -21,8 +21,8 @@ Publishing and installing MediaVault through GitHub and the TrueNAS community ca
 
 MediaVault is currently supported and release-tested on **TrueNAS SCALE ElectricEel-24.10.2.4**. The `-electric-eel` image-tag suffix records that tested support target; it does not denote a separate rootful or host-modifying container.
 
-1. Download `MediaVault-TrueNAS-v0.3.15.yml` from the [latest release](https://github.com/ScorpionZK89/MediaVault-Releases/releases/latest).
-2. Verify it with `SHA256SUMS-v0.3.15.txt` from the same release.
+1. Download `MediaVault-TrueNAS-v0.3.16.yml` from the [latest release](https://github.com/ScorpionZK89/MediaVault-Releases/releases/latest).
+2. Verify it with `SHA256SUMS-v0.3.16.txt` from the same release.
 3. In TrueNAS, open **Apps → Discover Apps → Custom App → Install via YAML**.
 4. Replace only the example administrator credentials and the example host paths with values for your system. Keep the immutable image digest.
 5. Install and wait for the healthcheck to become healthy, then open port 3000.
