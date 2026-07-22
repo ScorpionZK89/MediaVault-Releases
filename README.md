@@ -15,7 +15,7 @@ The server image is published at `ghcr.io/scorpionzk89/mediavault-server`. It in
 
 Official MediaVault binary releases are free for personal, non-commercial use. No purchase, licence fee, subscription or paid feature unlock is required. The source code remains private; the public eligibility grant is documented in the [MediaVault Free Personal Use Terms](PERSONAL-USE-TERMS.md).
 
-Publishing and installing MediaVault through GitHub and the TrueNAS community catalog does not require a payment to MediaVault. Hardware, electricity, Internet access and optional third-party services remain outside MediaVault.
+Publishing and installing MediaVault through GitHub as a standalone TrueNAS Custom App does not require a payment to MediaVault. Hardware, electricity, Internet access and optional third-party services remain outside MediaVault.
 
 ## TrueNAS installation
 
@@ -27,12 +27,12 @@ MediaVault is currently supported and release-tested on **TrueNAS SCALE Electric
 4. Replace only the example administrator credentials and the example host paths with values for your system. Keep the immutable image digest.
 5. Install and wait for the healthcheck to become healthy, then open port 3000.
 
-The standalone YAML constrains the main service directly with `user: "568:568"`; this is not an environment-variable-based UID/GID switch. The catalog form allows another numeric non-root UID/GID and applies that exact value through Compose `user:` plus the standard temporary permissions helper for managed writable app-data volumes. The published image was also started healthy as `1234:1234`; it is not tied to 568. The service uses a read-only root filesystem, read-only media, all Linux capabilities dropped and `no-new-privileges`.
+The standalone YAML constrains the main service directly with `user: "568:568"`; this is not an environment-variable-based UID/GID switch. The published image was also started healthy as `1234:1234`; it is not tied to 568. The service uses a read-only root filesystem, read-only media, all Linux capabilities dropped and `no-new-privileges`.
 
-The prepared catalog template creates separate managed ixVolumes for configuration, database data, cache, transcodes, downloads, backups and the initial media location. Existing media is selected separately and mounted read-only. Until the catalog contribution is accepted, the standalone YAML remains the supported production installation path.
+The standalone YAML is the only supported production installation path. It uses explicit persistent host mounts for configuration, database data, cache, transcodes, downloads and backups; existing media is selected separately and mounted read-only. MediaVault does not create or alter TrueNAS datasets or ACLs outside those selected mounts.
 
 ## Updates
 
-MediaVault installations use the GitHub Releases API of this repository to check for updates. An update is never installed silently: TrueNAS application updates remain controlled by TrueNAS, while Android users confirm signed APK installation through Android.
+MediaVault installations use the GitHub Releases API of this repository to check for updates. An update is never installed silently: the TrueNAS administrator deliberately replaces the immutable image pin in the Custom App, while Android users confirm signed APK installation through Android.
 
-No passwords, API keys, media, databases or live server configuration are published here. Every catalog-set variable is described in the public [environment-variable reference](ENVIRONMENT.md).
+No passwords, API keys, media, databases or live server configuration are published here. Every supported variable is described in the public [environment-variable reference](ENVIRONMENT.md).

@@ -1,11 +1,11 @@
 # MediaVault environment variables
 
-The official TrueNAS catalog form supplies these values and normally does not require manual environment editing. Secrets are masked in the form and must never be committed to Git.
+The standalone TrueNAS Custom App YAML supplies these values. Replace example credentials and paths in the TrueNAS form before installation; secrets must never be committed to Git.
 
 | Variable | Purpose |
 |---|---|
-| `MEDIAVAULT_BIND_ADDRESS` | Address listened on inside the container. The catalog sets `0.0.0.0` for LAN access. |
-| `MEDIAVAULT_PORT` | Internal HTTP port. The catalog uses `3000`; the published host port remains configurable. |
+| `MEDIAVAULT_BIND_ADDRESS` | Address listened on inside the container. The standalone YAML sets `0.0.0.0` for LAN access. |
+| `MEDIAVAULT_PORT` | Internal HTTP port. The standalone YAML uses `3000`; the published host port remains configurable. |
 | `MEDIAVAULT_CONFIG_DIR` | Writable directory for control state and encrypted integration configuration. |
 | `MEDIAVAULT_DATA_DIR` | Writable directory containing the SQLite database and persistent application data. |
 | `MEDIAVAULT_CACHE_DIR` | Writable cache root, including downloaded metadata artwork. |
@@ -16,15 +16,13 @@ The official TrueNAS catalog form supplies these values and normally does not re
 | `MEDIAVAULT_LOG_DIR` | Writable application log directory. |
 | `MEDIAVAULT_LOG_MAX_BYTES` | Maximum size of one rotating log file; constrained by the server. |
 | `MEDIAVAULT_LOG_RETAINED_FILES` | Number of rotated log files retained; constrained by the server. |
-| `MEDIAVAULT_MEDIA_ROOTS` | Semicolon-separated allow-list of media roots. Catalog media is mounted read-only at `/media`. |
+| `MEDIAVAULT_MEDIA_ROOTS` | Semicolon-separated allow-list of media roots. Media is mounted read-only at `/media`. |
 | `MEDIAVAULT_FFMPEG_PATH` | Absolute path to the bundled FFmpeg binary. |
 | `MEDIAVAULT_FFPROBE_PATH` | Absolute path to the bundled ffprobe binary. |
 | `MEDIAVAULT_HARDWARE_DEVICE` | Optional exact `/dev/dri/renderD<number>` or `/dev/nvidia<number>` override. Empty means automatic assigned-device detection. |
 | `MEDIAVAULT_ADMIN_EMAIL` | Initial owner account e-mail address. |
 | `MEDIAVAULT_ADMIN_PASSWORD` | Initial owner password. LAN startup rejects missing, example or shorter-than-12-character values. |
 | `MEDIAVAULT_CORS_ORIGINS` | Semicolon-separated browser origins allowed to call the API. |
-| `MEDIAVAULT_DEPLOYMENT_MODE` | Controls update guidance: `truenas-catalog` opens the regular Apps update flow; `truenas-custom` reports the Custom App path. It does not change privileges. |
-| `MEDIAVAULT_TRUENAS_UI_URL` | Base URL used only for the update link back to the TrueNAS Apps interface. |
 | `MEDIAVAULT_TMDB_READ_ACCESS_TOKEN` | Optional TMDB read-access token. It stays server-side; empty keeps TMDB disabled. |
 | `MEDIAVAULT_TMDB_LANGUAGE` | TMDB metadata locale in `ll-CC` form; default `nl-NL`. |
 | `MEDIAVAULT_AUTO_SCAN_ENABLED` | Enables filesystem watchers, the lightweight snapshot check and scheduled scans. |
