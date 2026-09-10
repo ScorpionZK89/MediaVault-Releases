@@ -1,0 +1,32 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "MediaVault koppelen",
+        "description": "Maak een integratiesleutel in MediaVault → Instellingen → Integraties → Home Assistant. Gebruik het basisadres van de server. Gebruik buiten je LAN HTTPS.",
+        "data": {"url": "MediaVault-adres", "token": "Integratiesleutel"}
+      },
+      "reauth_confirm": {
+        "title": "MediaVault opnieuw verbinden",
+        "description": "Vul een nieuwe sleutel voor dezelfde server en hetzelfde profiel in.",
+        "data": {"url": "MediaVault-adres", "token": "Integratiesleutel"}
+      },
+      "reconfigure": {
+        "title": "MediaVault-koppeling aanpassen",
+        "description": "Wijzig het adres of de sleutel, met behoud van dezelfde server en hetzelfde profiel.",
+        "data": {"url": "MediaVault-adres", "token": "Integratiesleutel"}
+      }
+    },
+    "error": {
+      "invalid_auth": "De integratiesleutel is geweigerd. Maak een nieuwe sleutel in MediaVault.",
+      "cannot_connect": "Geen verbinding met een compatibele MediaVault-server. Controleer adres en serverversie.",
+      "invalid_url": "Gebruik een HTTP(S)-serveradres zonder pad, gebruikersnaam of queryparameters.",
+      "wrong_account": "Deze sleutel hoort bij een andere server of een ander profiel. Voeg die als aparte koppeling toe."
+    },
+    "abort": {
+      "already_configured": "Deze MediaVault-server en dit profiel zijn al gekoppeld.",
+      "reauth_successful": "De MediaVault-sleutel is vernieuwd.",
+      "reconfigure_successful": "De MediaVault-koppeling is aangepast."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+task_action:
+  name: Control a server task
+  description: Pause, resume or cancel an existing task. Requires a management key.
+  fields:
+    entry_id:
+      name: Integration
+      required: true
+      selector:
+        config_entry:
+          integration: mediavault
+    task_id:
+      name: Task ID
+      description: Use an ID from the Active tasks sensor's tasks attribute.
+      required: true
+      selector:
+        text:
+    action:
+      name: Action
+      required: true
+      selector:
+        select:
+          options:
+            - pause
+            - resume
+            - cancel

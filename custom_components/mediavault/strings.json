@@ -1,0 +1,32 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect MediaVault",
+        "description": "Create an integration key in MediaVault → Settings → Integrations → Home Assistant. Use the server base URL; prefer HTTPS outside your LAN.",
+        "data": {"url": "MediaVault URL", "token": "Integration key"}
+      },
+      "reauth_confirm": {
+        "title": "Reconnect MediaVault",
+        "description": "Enter a new key for the same MediaVault server and profile.",
+        "data": {"url": "MediaVault URL", "token": "Integration key"}
+      },
+      "reconfigure": {
+        "title": "Reconfigure MediaVault",
+        "description": "Change the address or key, keeping the same server and profile.",
+        "data": {"url": "MediaVault URL", "token": "Integration key"}
+      }
+    },
+    "error": {
+      "invalid_auth": "The integration key was rejected. Create a new key in MediaVault.",
+      "cannot_connect": "Cannot connect to a compatible MediaVault server. Check the address and server version.",
+      "invalid_url": "Enter an HTTP(S) server URL without a path, username or query parameters.",
+      "wrong_account": "This is a different server or profile. Add it as a separate integration."
+    },
+    "abort": {
+      "already_configured": "This MediaVault server and profile are already configured.",
+      "reauth_successful": "MediaVault authentication updated.",
+      "reconfigure_successful": "MediaVault configuration updated."
+    }
+  }
+}
